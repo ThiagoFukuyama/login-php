@@ -1,5 +1,7 @@
 <?php
 
+namespace Source\Models;
+
 class Login extends Dbh {
     
     protected function getUser($uid, $password) {
@@ -8,13 +10,13 @@ class Login extends Dbh {
 
         if (!$stmt->execute(array($uid, $uid))) {
             $stmt = NULL;
-            header("location: ../index.php?error=stmtfailed");
+            header("location: ../?error=stmtfailed");
             exit();
         }
 
         if ($stmt->rowCount() == 0) {
             $stmt = NULL;
-            header("location: ../index.php?error=usernotfound");
+            header("location: ../?error=usernotfound");
             exit();
         }
 
@@ -25,7 +27,7 @@ class Login extends Dbh {
         if (!$checkPassword) {
 
             $stmt = NULL;
-            header("location: ../index.php?error=wrongpassword");
+            header("location: ../?error=wrongpassword");
             exit();
 
         } elseif ($checkPassword) {
@@ -35,13 +37,13 @@ class Login extends Dbh {
 
             if (!$stmt->execute(array($uid, $uid, $password))) {
                 $stmt = NULL;
-                header("location: ../index.php?error=stmtfailed");
+                header("location: ../?error=stmtfailed");
                 exit();
             }
 
             if ($stmt->rowCount() == 0) {
                 $stmt = NULL;
-                header("location: ../index.php?error=usernotfound");
+                header("location: ../?error=usernotfound");
                 exit();
             }
 

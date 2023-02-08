@@ -1,5 +1,7 @@
 <?php
 
+namespace Source\Models;
+
 class Signup extends Dbh {
     
     protected function setUser($uid, $password, $email) {
@@ -11,7 +13,7 @@ class Signup extends Dbh {
 
         if (!$stmt->execute(array($uid, $hashedPassword, $email))) {
             $stmt = NULL;
-            header("location: ../index.php?error=stmtfailed");
+            header("location: ../?error=stmtfailed");
             exit();
         }
 
@@ -26,7 +28,7 @@ class Signup extends Dbh {
         
         if (!$stmt->execute(array($uid, $email))) {
             $stmt = NULL;
-            header("location: ../index.php?error=stmtfailed");
+            header("location: ../?error=stmtfailed");
             exit();
         }
 

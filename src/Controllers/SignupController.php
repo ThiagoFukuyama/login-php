@@ -1,6 +1,8 @@
 <?php
 
-class SignupContr extends Signup {
+namespace Source\Controllers;
+
+class SignupController extends \Source\Models\Signup {
 
     private $uid;
     private $password;
@@ -18,27 +20,27 @@ class SignupContr extends Signup {
 
     public function signupUser() {
         if ($this->hasEmptyInput()) {
-            header("Location: ../index.php?error=emptyinput");
+            header("Location: ../?error=emptyinput");
             exit();
         }
 
         if ($this->hasInvalidUid()) {
-            header("Location: ../index.php?error=invaliduid");
+            header("Location: ../?error=invaliduid");
             exit();
         }
 
         if ($this->hasInvalidEmail()) {
-            header("Location: ../index.php?error=invalidemail");
+            header("Location: ../?error=invalidemail");
             exit();
         }
 
         if (!$this->passwordMatch()) {
-            header("Location: ../index.php?error=passwordnotmatch{$this->password}{$this->passwordRepeat}");
+            header("Location: ../?error=passwordnotmatch");
             exit();
         }
 
         if ($this->userAlreadyExists()) {
-            header("Location: ../index.php?error=useroremailtaken");
+            header("Location: ../?error=useroremailtaken");
             exit();
         }
 
