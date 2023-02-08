@@ -1,6 +1,8 @@
 <?php
 
-include "class-autoload.inc.php";
+include __DIR__ . "/../../vendor/autoload.php";
+
+use Source\Controllers\SignupController;
 
 if (isset($_POST["submit"])) {
 
@@ -12,7 +14,7 @@ if (isset($_POST["submit"])) {
 
 
     // Instanciando classe SignupContr
-    $signup  = new SignupContr($uid, $password, $passwordRepeat, $email); 
+    $signup  = new SignupController($uid, $password, $passwordRepeat, $email); 
 
 
     // Rodando registro de usuário
@@ -20,6 +22,11 @@ if (isset($_POST["submit"])) {
 
     
     // Voltando para a página inicial
-    header("Location: ../index.php?error=none");
+    header("Location: ../?error=none");
+    exit();
 
 }
+
+header("Location: ../");
+exit();
+

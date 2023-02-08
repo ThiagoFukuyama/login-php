@@ -1,6 +1,8 @@
 <?php
 
-class LoginContr extends Login {
+namespace Source\Controllers;
+
+class LoginController extends \Source\Models\Login {
 
     private $uid;
     private $password;
@@ -15,7 +17,7 @@ class LoginContr extends Login {
     public function loginUser() {
         if ($this->hasEmptyInput()) {
             echo "Input vazio!";
-            header("Location: ../index.php?error=emptyinput");
+            header("Location: ../?error=emptyinput");
             exit();
         }
 

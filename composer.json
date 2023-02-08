@@ -1,0 +1,24 @@
+{
+    "name": "thiagofukuyama/login-php",
+    "description": "Sistema de login e registro de usuários em PHP Orientado a Objetos",
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Thiago Fukuyama Marcilli",
+            "email": "thiagofkm@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "config": {
+        "vendor-dir": "vendor"
+    },
+    "autoload": {
+        "psr-4": {
+            "Source\\": "src/"
+        },
+    "files": [
+            "src/Config.php"
+        ]
+    }
+}
