@@ -24,17 +24,17 @@ class SignupController extends \Source\Models\Signup {
             exit();
         }
 
-        if ($this->hasInvalidUid()) {
+        if ($this->hasValidUid() == false) {
             header("Location: ../?error=invaliduid");
             exit();
         }
 
-        if ($this->hasInvalidEmail()) {
+        if ($this->hasValidEmail() == false) {
             header("Location: ../?error=invalidemail");
             exit();
         }
 
-        if (!$this->passwordMatch()) {
+        if ($this->passwordMatch() == false) {
             header("Location: ../?error=passwordnotmatch");
             exit();
         }
@@ -49,67 +49,27 @@ class SignupController extends \Source\Models\Signup {
 
 
     private function hasEmptyInput() {
-        $result;
-
-        if (empty($this->uid) || empty($this->password) || empty($this->passwordRepeat) || empty($this->email)) {
-            $result = true;
-        } else {
-            $result = false;
-        }
-
-        return $result;
+        return empty($this->uid) || empty($this->password) || empty($this->passwordRepeat) || empty($this->email);
     }
 
 
-    private function hasInvalidUid() {
-        $result;
-
-        if (!preg_match("/^[a-zA-Z0-9 _-]*$/", $this->uid)) {
-            $result = true;
-        } else {
-            $result = false;
-        }
-
-        return $result;
+    private function hasValidUid() {
+        return preg_match("/^[a-zA-Z0-9 _-]*$/", $this->uid);
     }
 
 
-    private function hasInvalidEmail() {
-        $result;
-
-        if (!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
-            $result = true;
-        } else {
-            $result = false;
-        }
-
-        return $result;
+    private function hasValidEmail() {
+        return filter_var($this->email, FILTER_VALIDATE_EMAIL);
     }
 
 
     private function passwordMatch() {
-        $result;
-
-        if ($this->password !== $this->passwordRepeat) {
-            $result = false;
-        } else {
-            $result = true;
-        }
-
-        return $result;
+        return $this->password == $this->passwordRepeat;
     }
 
 
     private function userAlreadyExists() {
-        $result;
-
-        if (!$this->checkUser($this->uid, $this->email)) {
-            $result = true;
-        } else {
-            $result = false;
-        }
-
-        return $result;
+        return $this->checkUser($this->uid, $this->email);
     }
 
 }

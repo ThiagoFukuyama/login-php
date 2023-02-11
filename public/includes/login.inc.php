@@ -20,7 +20,8 @@ if (isset($_POST["submit"])) {
 
     
     // Voltando para a página inicial
-    header("Location: ../?error=none");
+    header("Location: ../loggedInPage.php");
+    exit();
 
 }
 

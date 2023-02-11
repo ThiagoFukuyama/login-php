@@ -26,14 +26,6 @@ class LoginController extends \Source\Models\Login {
 
 
     private function hasEmptyInput() {
-        $result;
-
-        if (empty($this->uid) || empty($this->password)) {
-            $result = true;
-        } else {
-            $result = false;
-        }
-
-        return $result;
+        return empty($this->uid) || empty($this->password);
     }
 }
