@@ -1,3 +1,5 @@
+Options -Indexes
+
 RewriteEngine On
 
 RewriteCond %{THE_REQUEST} /public/([^\s?]*) [NC]
