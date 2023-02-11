@@ -1,0 +1,53 @@
+
+#login form,
+#signup form {
+    animation: fadeIn forwards 0.5s;
+    opacity: 0;
+}
+
+#signup form {
+    animation-delay: 0.1s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+#logged-in-page {
+    animation: moveBackground forwards 1s;
+    background-size: 300%;
+}
+
+@keyframes moveBackground {
+    from {
+        background-position: 100% 100%;
+    }
+
+    to {
+        background-position: 0px 0px;
+    }
+}
+
+#user-profile {
+    animation: jump forwards 1s;
+}
+
+@keyframes jump {
+    from {
+        transform: scale(1.1);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+.inverted {
+    transform: scaleX(-1);
+}
