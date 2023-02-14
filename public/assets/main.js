@@ -10,7 +10,8 @@
 const loginForm = document.querySelector("#login-form");
 const loginUid = document.querySelector("#uid");
 const loginPassword = document.querySelector("#password");
-const loginMessage = document.querySelector("#login-message");
+
+const loginError = document.querySelector("#login-error");
 
 loginForm.addEventListener("submit", (e) => {
 
@@ -22,8 +23,8 @@ loginForm.addEventListener("submit", (e) => {
     
     if (error) {
         e.preventDefault();
-        loginMessage.textContent = error;
-        loginMessage.classList.remove("hidden");
+        loginError.textContent = error;
+        loginError.classList.remove("hidden");
     } 
 });
 
@@ -39,7 +40,9 @@ const signupUid = document.querySelector("#uidReg");
 const signupPassword = document.querySelector("#passwordReg");
 const signupPasswordRepeat = document.querySelector("#passwordRepeatReg");
 const signupEmail = document.querySelector("#emailReg");
-const signupMessage = document.querySelector("#signup-message");
+
+const signupError = document.querySelector("#signup-error");
+const signupSuccess = document.querySelector("#signup-success");
 
 signupForm.addEventListener("submit", (e) => {
 
@@ -63,23 +66,19 @@ signupForm.addEventListener("submit", (e) => {
     
     if (error) {
         e.preventDefault();
-        signupMessage.textContent = error;
-        signupMessage.classList.remove("hidden");
+        signupError.textContent = error;
+        signupError.classList.remove("hidden");
+
+        if (signupSuccess) {
+            signupSuccess.remove();
+        }
     } 
+
+
+    
 });
-
-
-const signupSuccess = document.querySelector("#signup-success");
-
-if (signupSuccess) {
-    setTimeout(() => {
-        signupSuccess.remove();
-    }, 5000);
-}
 
 
 function isEmpty(value) {
     return !value.trim().length; 
 }
-
-

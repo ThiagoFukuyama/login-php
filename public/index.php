@@ -55,7 +55,7 @@ session_start();
                         </button>
 
                         <div 
-                            id="login-message" 
+                            id="login-error" 
                             class="<?php echo (isset($_SESSION["loginError"]) && $_SESSION["loginError"] !== "none") ? "" : "hidden" ?>
                             mt-6 px-5 py-3 bg-red-300 bg-opacity-70 text-red-900 rounded-md border-2 border-red-400"
                         >
@@ -86,7 +86,7 @@ session_start();
                             <h1 class="text-indigo-500 sm:text-6xl text-4xl font-bold mb-6 sm:mb-10 ">
                                 Registrar-se
                             </h1>
-                            <p class="text-gray-400 font-medium text-lg mb-7">
+                            <p class="text-gray-400 text-lg mb-6">
                                 Ainda não é associado? Registre-se aqui mesmo!
                             </p>
                         </div>
@@ -124,7 +124,7 @@ session_start();
                         </button>
 
                         <div 
-                            id="signup-message" 
+                            id="signup-error" 
                             class="<?php echo (isset($_SESSION["signupError"]) && $_SESSION["signupError"] !== "none") ? "" : "hidden" ?> 
                             mt-6 px-5 py-3 bg-red-300 bg-opacity-70 text-red-900 rounded-md border-2 border-red-400"
                         >
