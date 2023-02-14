@@ -22,7 +22,7 @@ session_start();
             <div class="flex flex-col lg:flex-row lg:h-screen justify-center items-center">
 
                 <!-- LOGIN -->
-                <div id="login" class="group relative w-full h-full bg-indigo-500 px-4 py-20 flex-1 flex justify-center items-center">
+                <div id="login" class="group relative w-full h-full bg-indigo-500 px-5 py-20 flex-1 flex justify-center items-center">
                     <form id="login-form" action="includes/login.inc.php" method="post" class="group-hover:scale-105 max-w-[330px] w-full flex flex-col justify-center items-center duration-150">
 
                         <div class="text-center">
