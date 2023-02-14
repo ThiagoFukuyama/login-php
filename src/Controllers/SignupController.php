@@ -2,7 +2,8 @@
 
 namespace Source\Controllers;
 
-class SignupController extends \Source\Models\Signup {
+class SignupController extends \Source\Models\Signup 
+{
 
     private $uid;
     private $password;
@@ -10,7 +11,8 @@ class SignupController extends \Source\Models\Signup {
     private $email;
 
 
-    public function __construct($uid, $password, $passwordRepeat, $email) {
+    public function __construct($uid, $password, $passwordRepeat, $email) 
+    {
         $this->uid = $uid;
         $this->password = $password;
         $this->passwordRepeat = $passwordRepeat;
@@ -18,29 +20,40 @@ class SignupController extends \Source\Models\Signup {
     }
 
 
-    public function signupUser() {
+    public function signupUser() 
+    {
         if ($this->hasEmptyInput()) {
-            header("Location: ../?error=emptyinput");
+            session_start();
+            $_SESSION["signupError"] = "Preencha todos os campos.";
+            header("location: ../");
             exit();
         }
 
         if ($this->hasValidUid() == false) {
-            header("Location: ../?error=invaliduid");
+            session_start();
+            $_SESSION["signupError"] = "Usuário deve conter apenas letras, números, espaços, hífen e subtraço.";
+            header("location: ../");
             exit();
         }
 
         if ($this->hasValidEmail() == false) {
-            header("Location: ../?error=invalidemail");
+            session_start();
+            $_SESSION["signupError"] = "Insira um e-mail válido.";
+            header("location: ../");
             exit();
         }
 
         if ($this->passwordMatch() == false) {
-            header("Location: ../?error=passwordnotmatch");
+            session_start();
+            $_SESSION["signupError"] = "Senhas inseridas não combinam.";
+            header("location: ../");
             exit();
         }
 
         if ($this->userAlreadyExists()) {
-            header("Location: ../?error=useroremailtaken");
+            session_start();
+            $_SESSION["signupError"] = "Usuário ou e-mail já existem.";
+            header("location: ../");
             exit();
         }
 
@@ -48,27 +61,32 @@ class SignupController extends \Source\Models\Signup {
     }
 
 
-    private function hasEmptyInput() {
+    private function hasEmptyInput() 
+    {
         return empty($this->uid) || empty($this->password) || empty($this->passwordRepeat) || empty($this->email);
     }
 
 
-    private function hasValidUid() {
+    private function hasValidUid() 
+    {
         return preg_match("/^[a-zA-Z0-9 _-]*$/", $this->uid);
     }
 
 
-    private function hasValidEmail() {
+    private function hasValidEmail() 
+    {
         return filter_var($this->email, FILTER_VALIDATE_EMAIL);
     }
 
 
-    private function passwordMatch() {
+    private function passwordMatch() 
+    {
         return $this->password == $this->passwordRepeat;
     }
 
 
-    private function userAlreadyExists() {
+    private function userAlreadyExists() 
+    {
         return $this->checkUser($this->uid, $this->email);
     }
 

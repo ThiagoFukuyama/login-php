@@ -2,30 +2,37 @@
 
 namespace Source\Controllers;
 
-class LoginController extends \Source\Models\Login {
+class LoginController extends \Source\Models\Login 
+{
 
     private $uid;
     private $password;
 
 
-    public function __construct($uid, $password) {
+    public function __construct($uid, $password) 
+    {
         $this->uid = $uid;
         $this->password = $password;
     }
 
 
-    public function loginUser() {
+    public function loginUser() 
+    {
         if ($this->hasEmptyInput()) {
-            echo "Input vazio!";
-            header("Location: ../?error=emptyinput");
+
+            session_start();
+            $_SESSION["loginError"] = "Preencha todos os campos.";
+            header("location: ../");
             exit();
+
         }
 
         $this->getUser($this->uid, $this->password);
     }
 
 
-    private function hasEmptyInput() {
+    private function hasEmptyInput() 
+    {
         return empty($this->uid) || empty($this->password);
     }
 }

@@ -2,9 +2,11 @@
 
 namespace Source\Models;
 
-class Dbh {
+class Dbh 
+{
 
-    protected function connect() {
+    protected function connect() 
+    {
         try {
             
             $dbHostname = DB_CONFIG["host"];

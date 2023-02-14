@@ -11,12 +11,12 @@ if (isset($_POST["submit"])) {
     $password = $_POST["password"];
 
 
-    // Instanciando classe SignupContr
-    $signup  = new LoginController($uid, $password); 
+    // Instanciando classe LoginController
+    $login  = new LoginController($uid, $password); 
 
 
     // Rodando registro de usuário
-    $signup->loginUser();
+    $login->loginUser();
 
     
     // Voltando para a página inicial

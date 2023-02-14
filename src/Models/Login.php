@@ -2,22 +2,32 @@
 
 namespace Source\Models;
 
-class Login extends Dbh {
+class Login extends Dbh 
+{
     
-    protected function getUser($uid, $password) {
+    protected function getUser($uid, $password) 
+    {
         $sql = "SELECT senha FROM usuarios WHERE usuario = ? OR email = ?";
         $stmt = $this->connect()->prepare($sql);
 
         if (!$stmt->execute(array($uid, $uid))) {
+
             $stmt = NULL;
-            header("location: ../?error=stmtfailed");
+            session_start();
+            $_SESSION["loginError"] = "Ocorreu um erro. Tente novamente mais tarde.";
+            header("location: ../");
             exit();
+
         }
 
         if ($stmt->rowCount() == 0) {
+
             $stmt = NULL;
-            header("location: ../?error=usernotfound");
+            session_start();
+            $_SESSION["loginError"] = "Usuário ou senha inválidos.";
+            header("location: ../");
             exit();
+
         }
 
         $hashedPassword = $stmt->fetchAll();
@@ -27,7 +37,9 @@ class Login extends Dbh {
         if (!$checkPassword) {
 
             $stmt = NULL;
-            header("location: ../?error=wrongpassword");
+            session_start();
+            $_SESSION["loginError"] = "Usuário ou senha inválidos.";
+            header("location: ../");
             exit();
 
         } elseif ($checkPassword) {
@@ -36,15 +48,23 @@ class Login extends Dbh {
             $stmt = $this->connect()->prepare($sql);
 
             if (!$stmt->execute(array($uid, $uid, $password))) {
+
                 $stmt = NULL;
-                header("location: ../?error=stmtfailed");
+                session_start();
+                $_SESSION["loginError"] = "Ocorreu um erro. Tente novamente mais tarde.";
+                header("location: ../");
                 exit();
+
             }
 
             if ($stmt->rowCount() == 0) {
+
                 $stmt = NULL;
-                header("location: ../?error=usernotfound");
+                session_start();
+                $_SESSION["loginError"] = "Usuário ou senha inválidos.";
+                header("location: ../");
                 exit();
+
             }
 
             $user = $stmt->fetchAll();

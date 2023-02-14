@@ -22,7 +22,9 @@ if (isset($_POST["submit"])) {
 
     
     // Voltando para a página inicial
-    header("Location: ../?error=none");
+    session_start();
+    $_SESSION["signupError"] = "none";
+    header("Location: ../");
     exit();
 
 }
