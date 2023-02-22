@@ -1,7 +1,7 @@
 
 # Login PHP
 
-## Sistema de login e registro de usuários em PHP Orientado a Objetos
+**Sistema de login e registro de usuários em PHP Orientado a Objetos**
 
 Projeto baseado no vídeo tutorial de Dani Krossing, incrementado com validação client-side
 
