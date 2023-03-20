@@ -12,12 +12,12 @@ class Login extends Dbh
 
         if (!$stmt->execute(array($uid, $uid))) {
             $stmt = NULL;
-            $this->exitWithError("Ocorreu um erro. Tente novamente mais tarde");
+            $this->exitWithError("Ocorreu um erro. Tente novamente mais tarde.");
         }
 
         if ($stmt->rowCount() == 0) {
             $stmt = NULL;
-            $this->exitWithError("Usuário ou senha inválidos");
+            $this->exitWithError("Usuário ou senha inválidos.");
         }
 
         $hashedPassword = $stmt->fetchAll();
@@ -27,7 +27,7 @@ class Login extends Dbh
         if (!$checkPassword) {
 
             $stmt = NULL;
-            $this->exitWithError("Usuário ou senha inválidos");
+            $this->exitWithError("Usuário ou senha inválidos.");
             
         } elseif ($checkPassword) {
 
@@ -36,12 +36,12 @@ class Login extends Dbh
 
             if (!$stmt->execute(array($uid, $uid, $password))) {
                 $stmt = NULL;
-                $this->exitWithError("Ocorreu um erro. Tente novamente mais tarde");
+                $this->exitWithError("Ocorreu um erro. Tente novamente mais tarde.");
             }
 
             if ($stmt->rowCount() == 0) {
                 $stmt = NULL;
-                $this->exitWithError("Usuário ou senha inválidos");
+                $this->exitWithError("Usuário ou senha inválidos.");
             }
 
             $user = $stmt->fetchAll();
