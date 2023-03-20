@@ -23,38 +23,23 @@ class SignupController extends \Source\Models\Signup
     public function signupUser() 
     {
         if ($this->hasEmptyInput()) {
-            session_start();
-            $_SESSION["signupError"] = "Preencha todos os campos.";
-            header("location: ../");
-            exit();
+            $this->exitWithError("Preencha todos os campos.");
         }
 
         if ($this->hasValidUid() == false) {
-            session_start();
-            $_SESSION["signupError"] = "Usuário deve conter apenas letras, números, espaços, hífen e subtraço.";
-            header("location: ../");
-            exit();
+            $this->exitWithError("Usuário deve conter apenas letras, números, espaços, hífen e subtraço.");
         }
 
         if ($this->hasValidEmail() == false) {
-            session_start();
-            $_SESSION["signupError"] = "Insira um e-mail válido.";
-            header("location: ../");
-            exit();
+            $this->exitWithError("Insira um e-mail válido.");
         }
 
         if ($this->passwordMatch() == false) {
-            session_start();
-            $_SESSION["signupError"] = "Senhas inseridas não combinam.";
-            header("location: ../");
-            exit();
+            $this->exitWithError("Senhas inseridas não combinam.");
         }
 
         if ($this->userAlreadyExists()) {
-            session_start();
-            $_SESSION["signupError"] = "Usuário ou e-mail já existem.";
-            header("location: ../");
-            exit();
+            $this->exitWithError("Usuário ou e-mail já registrados.");
         }
 
         $this->setUser($this->uid, $this->password, $this->email);

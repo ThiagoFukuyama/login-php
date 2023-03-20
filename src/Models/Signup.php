@@ -15,10 +15,7 @@ class Signup extends Dbh
 
         if (!$stmt->execute(array($uid, $hashedPassword, $email))) {
             $stmt = NULL;
-            session_start();
-            $_SESSION["signupError"] = "Ocorreu um erro. Tente novamente mais tarde.";
-            header("location: ../");
-            exit();
+            $this->exitWithError("Ocorreu um erro. Tente novamente mais tarde.");
         }
 
         $stmt = NULL;
@@ -33,13 +30,18 @@ class Signup extends Dbh
         
         if (!$stmt->execute(array($uid, $email))) {
             $stmt = NULL;
-            session_start();
-            $_SESSION["signupError"] = "Ocorreu um erro. Tente novamente mais tarde.";
-            header("location: ../");
-            exit();
+            $this->exitWithError("Ocorreu um erro. Tente novamente mais tarde.");
         }
 
         return $stmt->rowCount() > 0;
     } 
+
+    protected function exitWithError($message) 
+    {
+        session_start();
+        $_SESSION["signupError"] = $message;
+        header("location: ../");
+        exit();
+    }
 
 }

@@ -19,12 +19,7 @@ class LoginController extends \Source\Models\Login
     public function loginUser() 
     {
         if ($this->hasEmptyInput()) {
-
-            session_start();
-            $_SESSION["loginError"] = "Preencha todos os campos.";
-            header("location: ../");
-            exit();
-
+            $this->exitWithError("Preencha todos os campos.");
         }
 
         $this->getUser($this->uid, $this->password);
