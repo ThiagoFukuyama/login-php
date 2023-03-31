@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Tempo de geração: 11-Fev-2023 às 21:36
--- Versão do servidor: 5.7.36
--- versão do PHP: 7.4.27
+-- Host: 127.0.0.1
+-- Tempo de geração: 31-Mar-2023 às 21:24
+-- Versão do servidor: 10.4.27-MariaDB
+-- versão do PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,7 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `login_php_oop`
 --
-CREATE DATABASE IF NOT EXISTS `login_php_oop` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+CREATE DATABASE IF NOT EXISTS `login_php_oop` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
 USE `login_php_oop`;
 
 -- --------------------------------------------------------
@@ -29,14 +29,32 @@ USE `login_php_oop`;
 -- Estrutura da tabela `usuarios`
 --
 
-DROP TABLE IF EXISTS `usuarios`;
-CREATE TABLE IF NOT EXISTS `usuarios` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `usuario` tinytext COLLATE utf8_unicode_ci NOT NULL,
-  `senha` longtext COLLATE utf8_unicode_ci NOT NULL,
-  `email` tinytext COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL,
+  `usuario` tinytext NOT NULL,
+  `senha` longtext NOT NULL,
+  `email` tinytext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+--
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices para tabela `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
