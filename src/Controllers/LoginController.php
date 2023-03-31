@@ -1,22 +1,24 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Source\Controllers;
 
 class LoginController extends \Source\Models\Login 
 {
 
-    private $uid;
-    private $password;
+    private string $uid;
+    private string $password;
 
 
-    public function __construct($uid, $password) 
+    public function __construct(string $uid, string $password) 
     {
         $this->uid = $uid;
         $this->password = $password;
     }
 
 
-    public function loginUser() 
+    public function loginUser() : void
     {
         if ($this->hasEmptyInput()) {
             $this->exitWithError("Preencha todos os campos.");
@@ -28,7 +30,7 @@ class LoginController extends \Source\Models\Login
     }
 
 
-    private function hasEmptyInput() 
+    private function hasEmptyInput() : bool
     {
         return empty($this->uid) || empty($this->password);
     }

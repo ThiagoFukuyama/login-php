@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Source\Models;
 
 class Signup extends Dbh 
 {
     
-    protected function setUser($uid, $password, $email) 
+    protected function setUser(string $uid, string $password, string $email) : void
     {
         $sql = "INSERT INTO usuarios (usuario, senha, email) VALUES (?, ?, ?)";
 
@@ -22,7 +24,7 @@ class Signup extends Dbh
     } 
 
 
-    protected function checkUser($uid, $email) 
+    protected function checkUser(string $uid, string $email) : bool
     {
         $sql = "SELECT usuario FROM usuarios WHERE usuario = ? OR email = ?";
 
@@ -36,7 +38,7 @@ class Signup extends Dbh
         return $stmt->rowCount() > 0;
     } 
 
-    protected function exitWithError($message) 
+    protected function exitWithError(string $message) : void
     {
         session_start();
         $_SESSION["signupError"] = $message;

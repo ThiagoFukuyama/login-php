@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Source\Models;
 
 class Dbh 
 {
 
-    protected function connect() 
+    protected function connect() : \PDO
     {
         try {
             

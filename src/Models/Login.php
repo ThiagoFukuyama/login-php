@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Source\Models;
 
 class Login extends Dbh 
 {
     
-    protected function getUser($uid, $password) 
+    protected function getUser(string $uid, string $password) : void
     {
         $sql = "SELECT senha FROM usuarios WHERE usuario = ? OR email = ?";
         $stmt = $this->connect()->prepare($sql);
@@ -56,7 +58,7 @@ class Login extends Dbh
         $stmt = NULL;
     } 
 
-    protected function exitWithError($message) 
+    protected function exitWithError(string $message) : void 
     {
         session_start();
         $_SESSION["loginError"] = $message;
