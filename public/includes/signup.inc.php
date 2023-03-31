@@ -6,10 +6,10 @@ use Source\Controllers\SignupController;
 
 if (isset($_POST["submit"])) {
 
-    $uid = $_POST["uid"];
-    $password = $_POST["password"];
-    $passwordRepeat = $_POST["passwordRepeat"];
-    $email = $_POST["email"];
+    $uid = htmlspecialchars($_POST["uid"]);
+    $password = htmlspecialchars($_POST["password"]);
+    $passwordRepeat = htmlspecialchars($_POST["passwordRepeat"]);
+    $email = htmlspecialchars($_POST["email"]);
 
     $signup  = new SignupController($uid, $password, $passwordRepeat, $email); 
 

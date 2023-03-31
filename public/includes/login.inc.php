@@ -6,8 +6,8 @@ use Source\Controllers\LoginController;
 
 if (isset($_POST["submit"])) {
 
-    $uid = $_POST["uid"];
-    $password = $_POST["password"];
+    $uid = htmlspecialchars($_POST["uid"]);
+    $password = htmlspecialchars($_POST["password"]);
 
     $login  = new LoginController($uid, $password); 
 
