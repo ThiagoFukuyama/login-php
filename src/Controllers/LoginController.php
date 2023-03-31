@@ -23,6 +23,8 @@ class LoginController extends \Source\Models\Login
         }
 
         $this->getUser($this->uid, $this->password);
+        header("Location: ../loggedInPage.php");
+        exit();
     }
 
 

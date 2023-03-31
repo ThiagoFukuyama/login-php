@@ -13,9 +13,6 @@ if (isset($_POST["submit"])) {
 
     $login->loginUser();
 
-    header("Location: ../loggedInPage.php");
-    exit();
-
 }
 
 header("Location: /");
