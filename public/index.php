@@ -56,17 +56,11 @@ session_start();
 
                         <div 
                             id="login-error" 
-                            class="<?php echo (isset($_SESSION["loginError"]) && $_SESSION["loginError"] !== "none") ? "" : "hidden" ?>
+                            class="<?php echo (isset($_SESSION["loginError"])) ? "" : "hidden" ?>
                             mt-6 px-5 py-3 bg-red-300 bg-opacity-70 text-red-900 rounded-md border-2 border-red-400"
                         >
                             <?php
-
-                            if (isset($_SESSION["loginError"]) && $_SESSION["loginError"] !== "none") {
-
-                                echo $_SESSION["loginError"];
-
-                            }
-
+                                echo $_SESSION["loginError"] ?? "";
                             ?>
 
                         </div>
@@ -152,6 +146,7 @@ session_start();
 
                         session_unset();
                         session_destroy();
+                        
                         ?>
 
                     </form>
