@@ -2,7 +2,7 @@
 
 session_start();
 
-require_once "includes/verifyLogin.inc.php";
+require_once __DIR__ . "/includes/verifyLogin.inc.php";
 
 ?><!DOCTYPE html> 
 <html lang="en">

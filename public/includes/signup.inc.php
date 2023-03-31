@@ -17,6 +17,5 @@ if (isset($_POST["submit"])) {
     
 }
 
-header("Location: ../");
+header("Location: /");
 exit();
-
