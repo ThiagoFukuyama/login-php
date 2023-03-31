@@ -14,12 +14,7 @@ if (isset($_POST["submit"])) {
     $signup  = new SignupController($uid, $password, $passwordRepeat, $email); 
 
     $signup->signupUser();
-
-    session_start();
-    $_SESSION["signupError"] = "none";
-    header("Location: ../");
-    exit();
-
+    
 }
 
 header("Location: ../");
