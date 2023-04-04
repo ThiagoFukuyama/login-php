@@ -15,10 +15,10 @@ class SignupController extends \Source\Models\Signup
 
     public function __construct(string $uid, string $password, string $passwordRepeat, string $email) 
     {
-        $this->uid = $uid;
-        $this->password = $password;
-        $this->passwordRepeat = $passwordRepeat;
-        $this->email = $email;
+        $this->uid = htmlspecialchars($uid);
+        $this->password = htmlspecialchars($password);
+        $this->passwordRepeat = htmlspecialchars($passwordRepeat);
+        $this->email = htmlspecialchars($email);
     }
 
 

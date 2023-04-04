@@ -13,8 +13,8 @@ class LoginController extends \Source\Models\Login
 
     public function __construct(string $uid, string $password) 
     {
-        $this->uid = $uid;
-        $this->password = $password;
+        $this->uid = htmlspecialchars($uid);
+        $this->password = htmlspecialchars($password);
     }
 
 
