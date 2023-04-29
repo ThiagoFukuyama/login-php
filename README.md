@@ -15,10 +15,10 @@ Projeto baseado no vídeo tutorial de Dani Krossing, incrementado com melhor est
 
 # Instalação e Configuração
 
-A aplicação necessita do <a href="https://getcomposer.org/" target="_blank">Composer</a> para autoload de classes e configuração. Execute o comando:
+A aplicação necessita do [Composer](https://getcomposer.org/) para autoload de classes e configuração. Execute o comando:
 
 ```
 composer install
 ```
 
-Carregue o banco de dados disponível em `sql/login_php_oop.sql`, e então insira as configurações necessárias em `src/Config.php`.
+Carregue o banco de dados disponível em `sql/login_php_oop.sql`, e então insira ou substitua as configurações necessárias em `src/Config.php`.
