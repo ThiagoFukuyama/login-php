@@ -15,7 +15,7 @@ Projeto baseado no vídeo tutorial de Dani Krossing, incrementado com melhor est
 
 # Instalação e Configuração
 
-Clone o repositório no diretório utilizado pelo servidor: 
+Clone o repositório no diretório raíz do servidor: 
 
 ```
 git clone https://github.com/ThiagoFukuyama/login-php.git
