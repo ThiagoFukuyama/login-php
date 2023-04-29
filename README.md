@@ -5,7 +5,7 @@
 
 Projeto baseado no vídeo tutorial de Dani Krossing, incrementado com melhor estrutura de projeto, Composer e validação client-side.
 
-## Página de login
+## Página de login/registro
 
 ![Página principal da aplicação](https://user-images.githubusercontent.com/99801948/235281498-068e9bf6-3702-4ad5-8bf8-f0c638d76bce.png)
 
