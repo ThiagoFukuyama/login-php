@@ -15,6 +15,12 @@ Projeto baseado no vídeo tutorial de Dani Krossing, incrementado com melhor est
 
 # Instalação e Configuração
 
+Clone o repositório no diretório utilizado pelo servidor: 
+
+```
+git clone https://github.com/ThiagoFukuyama/login-php.git
+```
+
 A aplicação necessita do [Composer](https://getcomposer.org/) para autoload de classes e configuração. Execute o comando:
 
 ```
