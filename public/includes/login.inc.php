@@ -9,11 +9,11 @@ if (isset($_POST["submit"])) {
     $uid = $_POST["uid"];
     $password = $_POST["password"];
 
-    $login  = new LoginController($uid, $password); 
+    $login = new LoginController($uid, $password); 
 
     $login->loginUser();
 
 }
 
-header("Location: /");
+header("Location: ../");
 exit();

@@ -47,7 +47,7 @@ class SignupController extends \Source\Models\Signup
         $this->setUser($this->uid, $this->password, $this->email);
         session_start();
         $_SESSION["signupError"] = "none";
-        header("Location: /");
+        header("Location: ../");
         exit();
     }
 

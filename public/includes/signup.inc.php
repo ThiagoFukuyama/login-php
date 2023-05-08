@@ -11,11 +11,11 @@ if (isset($_POST["submit"])) {
     $passwordRepeat = $_POST["passwordRepeat"];
     $email = $_POST["email"];
 
-    $signup  = new SignupController($uid, $password, $passwordRepeat, $email); 
+    $signup = new SignupController($uid, $password, $passwordRepeat, $email); 
 
     $signup->signupUser();
     
 }
 
-header("Location: /");
+header("Location: ../");
 exit();
